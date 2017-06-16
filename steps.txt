@@ -1,0 +1,50 @@
+npm install -g @angular/cli
+npm install -g typescript
+ng new your-app-name
+
+
+add server.js in the package folder
+add system.config.js in the package folder
+add the scripts in index.html
+
+npm install systemjs which is required by system.config.js
+
+edit the relative paths in app.component.ts
+
+create component using ng g component <name>
+edit the relative paths in <name>.component.ts
+
+create routing module using ng g module app-routing
+
+remove CommonModule and replace with 
+code: import { RouterModule, Routes } from '@angular/router';
+
+import required components
+
+create routepath and its crossponding component
+code: add const routes : Routes = [
+    {path:"",component:},
+    {path:"",component:}
+];
+
+replace the import with
+code : RouterModule.forRoot(routes)
+
+add the routing module in app module
+
+create service 
+code : ng g service <name>
+
+import the service in app-module and give it in provider
+
+in service add these 3 imports
+	import { Http, Response } from '@angular/http';
+	import { Observable } from 'rxjs/Observable';
+	import 'rxjs/add/operator/catch';
+	import 'rxjs/add/operator/map';
+add this mapping method on service
+	private extractData(res: Response) {
+   		 console.log("mapping ");
+   		 let body = res.json();
+   		 return body || { };
+ 	 }
